@@ -1,60 +1,79 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+    <v-navigation-drawer v-model="drawer" app clipped>
+      <v-list>
+        <v-list-group
+         prepend-icon="$expand"
+         sub-group>
+          <v-list-item slot="activator">
+            <v-list-item-title>Módulo Acadêmico</v-list-item-title>
+          </v-list-item>
+          <router-link to="/">
+            <v-list-item class="ml-5 list-item">
+              <v-list-item-icon>
+                <v-icon>mdi-emoticon</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title> Alunos </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </router-link>
+        </v-list-group>
+      </v-list>
+    </v-navigation-drawer>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+    <v-app-bar app clipped-left>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title>Grupo A</v-toolbar-title>
     </v-app-bar>
 
     <v-main>
-      <HelloWorld/>
+      <v-container class="fill-height" fluid>
+        <v-row align="center" justify="center">
+          <v-col :lg="12">
+            <router-view></router-view>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-main>
+
+    <v-footer app>
+      <span>Desafio Grupo A &copy; {{ new Date().getFullYear() }}</span>
+    </v-footer>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-
 export default {
-  name: 'App',
+  name: "App",
 
-  components: {
-    HelloWorld,
+  props: {
+    source: String,
   },
 
+  components: {},
+
   data: () => ({
-    //
+    drawer: true,
   }),
+
+  created() {
+    this.$vuetify.theme.dark = true;
+  },
 };
 </script>
+<style scoped>
+a {
+  text-decoration: none;
+}
+.list-item {
+  margin: 5px;
+  border-radius: 4px;
+}
+.list-item:hover {
+  background: #747272;
+}
+.list-item:active {
+  background: rgb(87, 86, 86);
+}
+</style>
