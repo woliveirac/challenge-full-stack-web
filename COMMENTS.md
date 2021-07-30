@@ -15,3 +15,4 @@
 - interface mais bacana 
 - refatorada em algumas coisas 
 - middlewares para erros da api 
+- dotenv
