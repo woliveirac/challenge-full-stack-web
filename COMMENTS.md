@@ -8,10 +8,10 @@
 
 # O que você melhoraria se tivesse mais tempo 
 
-- eslit e prettier na api
+- eslint e prettier na api
 - aplicado SOLID 
 - testes 
 - swagger 
 - interface mais bacana 
 - refatorada em algumas coisas 
-- docker 
+- middlewares para erros da api 
