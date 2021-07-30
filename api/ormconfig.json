@@ -1,9 +1,9 @@
 {
     "type": "mysql",
-    "host": "localhost",
+    "host": "grupo-a-mysql-db",
     "port": 3306,
-    "username": "root",
-    "password": "",
+    "username": "grupoa",
+    "password": "grupoa@2021",
     "database": "edtech",
     "synchronize": true,
     "logging": false,
